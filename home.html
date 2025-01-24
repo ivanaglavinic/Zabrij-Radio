@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="styles.css" />
+    <title>Zabrij Radio</title>
+  </head>
+  <body>
+    <nav id="nav-bar">
+      <div class="logo">
+        <a href="./home.html"
+          ><img src="images/bird.jpeg" alt="logo" width="170" height="170"
+        /></a>
+      </div>
+
+      <ul class="menu">
+        <li><a href="/archive.html">Archive</a></li>
+        <li><a href="/about.html">About us</a></li>
+        <li><a href="/artists.html">Artists</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+      </ul>
+      <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+    </nav>
+
+    <section id="main">
+      <h1 class="text-start">LATEST</h1>
+      <div class="player-container" id="player-container" style="display: none">
+        <iframe
+          id="soundcloud-player"
+          width="100%"
+          height="100"
+          scrolling="no"
+          frameborder="no"
+          allow="autoplay"
+          src="https://w.soundcloud.com/player/?url="
+        >
+        </iframe>
+      </div>
+      <div class="container text-center mt-5 p-0">
+        <div class="row row-adjust">
+          <div class="col col-adjust">
+            <div id="playButtonContainer">
+              <img
+                id="picture"
+                src="images/&brie.zip - 3.png"
+                alt="Artist"
+                width="300"
+                height="300"
+              />
+
+              <img
+                id="playButton"
+                onclick="playAudio()"
+                data-url="https://soundcloud.com/zabrij-radio/djuska-vol1"
+                class="track-button"
+                src="images/play.png"
+                width="50"
+                height="50"
+              />
+              <img
+                id="pauseButton"
+                onclick="pauseAudio()"
+                src="images/pause.png"
+                width="50"
+                height="50"
+                class="track-button"
+                style="display: none"
+              />
+            </div>
+            <div>
+              <h3>DUSKA - interview with an alien // vol.1</h3>
+              <h2>25.01.2025.</h2>
+            </div>
+          </div>
+          <div class="col col-adjust">
+            <div id="playButtonContainer">
+              <img
+                id="picture"
+                src="images/4.png"
+                alt="Artist"
+                width="300"
+                height="300"
+              />
+
+              <img
+                id="playButton"
+                onclick="playAudio()"
+                data-url="https://soundcloud.com/zabrij-radio/pacho-vol1-zabrij-radio"
+                class="track-button"
+                src="images/play.png"
+                width="50"
+                height="50"
+              />
+              <img
+                id="pauseButton"
+                onclick="pauseAudio()"
+                src="images/pause.png"
+                width="50"
+                height="50"
+                class="track-button"
+                style="display: none"
+              />
+            </div>
+            <div>
+              <h3>DUSKA - interview with an alien // vol.1</h3>
+              <h2>25.01.2025.</h2>
+            </div>
+          </div>
+          <div class="col col-adjust">
+            <div id="playButtonContainer">
+              <img
+                id="picture"
+                src="images/5.png"
+                alt="Artist"
+                width="300"
+                height="300"
+              />
+
+              <img
+                id="playButton"
+                onclick="playAudio()"
+                data-url="https://soundcloud.com/zabrij-radio/skrabitz-vol-1-zabrij-radio"
+                class="track-button"
+                src="images/play.png"
+                width="50"
+                height="50"
+              />
+              <img
+                id="pauseButton"
+                onclick="pauseAudio()"
+                src="images/pause.png"
+                width="50"
+                height="50"
+                class="track-button"
+                style="display: none"
+              />
+            </div>
+            <div>
+              <h3>DUSKA - interview with an alien // vol.1</h3>
+              <h2>25.01.2025.</h2>
+            </div>
+          </div>
+          <div class="col col-adjust">
+            <div id="playButtonContainer">
+              <img
+                id="picture"
+                src="images/6.png"
+                alt="Artist"
+                width="300"
+                height="300"
+              />
+
+              <img
+                id="playButton"
+                onclick="playAudio()"
+                data-url="https://soundcloud.com/zabrij-radio/nikko-vol-1-zabrij-radio"
+                class="track-button"
+                src="images/play.png"
+                height="50"
+              />
+              <img
+                id="pauseButton"
+                onclick="pauseAudio()"
+                data-url="https://soundcloud.com/zabrij-radio/djuska-vol1"
+                src="images/pause.png"
+                width="50"
+                height="50"
+                class="track-button"
+                style="display: none"
+              />
+            </div>
+            <div>
+              <h3>DUSKA - interview with an alien // vol.1</h3>
+              <h2>25.01.2025.</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer><p>| ALL RIGHTS RESERVED • zabrijradio@gmail.com |</p></footer>
+    <script src="index.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

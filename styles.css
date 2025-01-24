@@ -1,0 +1,279 @@
+@font-face {
+  font-family: "MyCustomFont";
+  src: url("./fonts/Laviossa-Medium.otf") format("opentype");
+  font-weight: medium;
+  font-style: medium;
+}
+
+body {
+  text-align: center;
+  background-color: black;
+  color: white;
+  letter-spacing: 2px;
+  margin: 0px 40px;
+}
+h1 {
+  font-family: "MyCustomFont", sans-serif;
+  font-size: 48px;
+  border-bottom: 1px solid white;
+  text-align: left;
+}
+
+h3,
+h2 {
+  font-family: "Untitled Sans", Arial, Helvetica;
+  font-size: 16px;
+  text-align: left;
+}
+h3 {
+  margin-top: 20px;
+  line-height: 1.5;
+}
+.links {
+  background-color: black;
+  border: solid 1px white;
+  color: white;
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 4px 8px;
+  margin-top: 10px;
+  text-decoration: none;
+}
+button {
+  border: solid 1px white;
+  background-color: black;
+}
+.zanr {
+  border: solid 1px white;
+  border-radius: 16px;
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 5px;
+  margin-bottom: 5px;
+}
+.row-adjust {
+  row-gap: 28px;
+  column-gap: 12px;
+}
+
+.col-adjust {
+  padding: 12px;
+  border: 1px solid white;
+}
+#nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  padding-left: 10px;
+}
+
+.menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-right: 30px;
+  display: flex;
+}
+#artistList {
+  font-family: "MyCustomFont";
+  font-size: 20px;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  margin-right: 30px;
+  margin-top: 100px;
+}
+
+.artist {
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+}
+.hidden {
+  display: none;
+}
+#searchResults {
+  color: red; /* Make the message stand out */
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#searchForm {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  margin-top: 10px;
+}
+#searchBar {
+  width: 25%;
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  padding: 5px;
+}
+li {
+  font-size: 22px;
+  text-transform: uppercase;
+  margin: 0 25px;
+  font-family: "MyCustomFont", sans-serif;
+}
+li a {
+  text-decoration: none;
+  color: white;
+}
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  color: black;
+  font-size: 40px;
+}
+@media (max-width: 800px) {
+  #nav-bar ul {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background-color: #ede1d0;
+    width: 40%;
+
+    line-height: 2;
+    top: 100px;
+    left: 226px;
+  }
+  #nav-bar ul.active {
+    display: flex;
+    font-size: 0.9em;
+  }
+  .menu-icon {
+    display: block;
+  }
+}
+
+#contact-box {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 10px;
+  margin: 50px auto;
+  width: 30%;
+  padding: 0px 15px;
+}
+.form-header {
+  font-size: 22px;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: 0 auto;
+
+  line-height: 2;
+}
+.info {
+  display: flex;
+  flex-direction: column;
+}
+
+#name,
+#email {
+  margin-top: 7px;
+  padding: 5px;
+  font-size: 16px;
+  color: black;
+  background-color: white;
+  border: none;
+}
+
+label {
+  margin-top: 7px;
+}
+#message {
+  display: inline-block;
+  text-rendering: auto;
+  color: black;
+  background-color: white;
+  margin-top: 20px;
+  height: 150px;
+  appearance: auto;
+  resize: none;
+  font-size: 16px;
+  border: none;
+}
+.button-form {
+  font-size: 16px;
+  color: white;
+  width: 30%;
+  margin: 30px auto;
+  padding: 0px 7px;
+  border: 1px solid white;
+}
+.button-form:hover {
+  cursor: pointer;
+}
+@media (max-width: 800px) {
+  #contact {
+    margin-top: 30px;
+  }
+
+  #contact-box {
+    width: 90%;
+  }
+
+  .form-header {
+    font-size: 20px;
+  }
+
+  #message {
+    height: 120px;
+  }
+  .button-form {
+    font-family: "MyCustomFont", sans-serif;
+    font-size: 15px;
+    width: 70%;
+  }
+}
+
+@media (max-width: 600px) {
+  .button-form {
+    font-size: 14px;
+    width: 80%;
+    color: black;
+  }
+}
+#playButtonContainer {
+  position: relative;
+  display: inline-block;
+}
+
+#playSound {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.track-button {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  border: none;
+  cursor: pointer;
+  background-color: #efce65;
+
+  transition: background-color 0.3s;
+}
+
+footer {
+  border-top: 1px solid white;
+  margin: 0px 50px;
+  padding: 12px;
+}
+
+@media (max-width: 800px) {
+  footer p {
+    font-size: 12px;
+    padding: 8px;
+  }
+}
