@@ -6,7 +6,6 @@
 }
 
 body {
-  text-align: center;
   background-color: black;
   color: white;
   letter-spacing: 2px;
@@ -90,6 +89,39 @@ button {
   padding: 10px;
   border-radius: 5px;
   text-align: center;
+}
+.artist-link {
+  text-decoration: none;
+  color: white;
+}
+.artist-link:hover {
+  color: white;
+  text-decoration: underline;
+}
+.artist-name {
+  border: 1px solid white;
+  font-size: 35px;
+  width: 60%;
+  text-align: center;
+  padding: 20px;
+  margin-bottom: 40px;
+}
+.back-button {
+  border: 1px solid white;
+  width: 4%;
+  margin: 60px;
+  cursor: pointer;
+}
+.tracks-header {
+  display: block;
+  width: 30%;
+  font-size: 25px;
+  margin: 20px 80px;
+}
+.list-of-tracks {
+  border: 1px solid white;
+  margin: 0px 80px;
+  padding: 14px 25px 14px 60px;
 }
 .hidden {
   display: none;
@@ -269,6 +301,7 @@ footer {
   border-top: 1px solid white;
   margin: 0px 50px;
   padding: 12px;
+  text-align: center;
 }
 
 @media (max-width: 800px) {
