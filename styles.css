@@ -108,9 +108,12 @@ button {
 }
 .back-button {
   border: 1px solid white;
-  width: 4%;
-  margin: 60px;
+
   cursor: pointer;
+  display: block;
+  width: 4%;
+  padding: 3px;
+  margin-top: 40px;
 }
 .tracks-header {
   display: block;
@@ -123,6 +126,12 @@ button {
   margin: 0px 80px;
   padding: 14px 25px 14px 60px;
 }
+.my-websites {
+  display: flex;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
 .hidden {
   display: none;
 }

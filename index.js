@@ -23,19 +23,6 @@ function playAudio() {
     const widget = SC.Widget(iframe);
     widget.play(); // Resume playback if already loaded
   }
-
-  document.getElementById("playButton").style.display = "none"; // Hide play button
-  document.getElementById("pauseButton").style.display = "inline-block"; // Show pause button
-}
-
-function pauseAudio() {
-  const iframe = document.getElementById("soundcloud-player");
-  const widget = SC.Widget(iframe);
-
-  widget.pause(); // Pause the music
-
-  document.getElementById("playButton").style.display = "inline-block"; // Show play button
-  document.getElementById("pauseButton").style.display = "none"; // Hide pause button
 }
 
 document.addEventListener("DOMContentLoaded", () => {
