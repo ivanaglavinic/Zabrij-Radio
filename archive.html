@@ -35,18 +35,40 @@
     <section id="main">
       <h1 class="text-start">ARCHIVE</h1>
       <div class="player-container" id="player-container" style="display: none">
+        <div class="custom-player">
+          <img
+            src="images/buttons/play.png"
+            class="custom-play-button"
+            id="custom-play-button"
+            onclick="playAudio()"
+            data-url=""
+          />
+
+          <img
+            src="images/buttons/pause.png"
+            class="custom-pause-button"
+            id="custom-pause-button"
+            onclick="pauseAudio()"
+            style="display: none"
+          />
+          <div class="progress-container" id="progress-container">
+            <div class="custom-progress-bar" id="progress-bar"></div>
+          </div>
+        </div>
+
         <iframe
           id="soundcloud-player"
           width="100%"
           height="100"
           scrolling="no"
           frameborder="no"
+          style="display: none"
           allow="autoplay"
           src="https://w.soundcloud.com/player/?url="
         >
         </iframe>
       </div>
-      <div class="container text-start mt-5 mb-5 p-0">
+      <div class="container text-start mt-5 p-0">
         <div class="row row-adjust">
           <div class="col col-adjust">
             <div id="playButtonContainer">
@@ -64,6 +86,7 @@
                 data-url="https://soundcloud.com/zabrij-radio/djuska-vol1"
                 class="track-button"
                 src="images/buttons/play.png"
+                style="display: block"
                 width="50"
                 height="50"
               />
@@ -90,9 +113,10 @@
               <img
                 id="playButton"
                 onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/pacho-vol1-zabrij-radio"
+                data-url="https://soundcloud.com/zabrij-radio/arya-p-vol1-zabrij-radio"
                 class="track-button"
                 src="images/buttons/play.png"
+                style="display: block"
                 width="50"
                 height="50"
               />
@@ -120,6 +144,16 @@
                 data-url="https://soundcloud.com/zabrij-radio/skrabitz-vol-1-zabrij-radio"
                 class="track-button"
                 src="images/buttons/play.png"
+                width="50"
+                height="50"
+              />
+              <img
+                id="pauseButton"
+                onclick="pauseAudio()"
+                data-url="https://soundcloud.com/zabrij-radio/djuska-vol1"
+                class="track-button"
+                src="images/buttons/pause.png"
+                style="display: none"
                 width="50"
                 height="50"
               />
@@ -152,6 +186,16 @@
                 width="50"
                 height="50"
               />
+              <img
+                id="pauseButton"
+                onclick="pauseAudio()"
+                data-url="https://soundcloud.com/zabrij-radio/djuska-vol1"
+                class="track-button"
+                src="images/buttons/pause.png"
+                style="display: none"
+                width="50"
+                height="50"
+              />
             </div>
             <div>
               <h3>DOXIA // vol.1</h3>
@@ -175,6 +219,16 @@
                 data-url="https://soundcloud.com/zabrij-radio/marcela-vol1-zabrij-radio"
                 class="track-button"
                 src="images/buttons/play.png"
+                width="50"
+                height="50"
+              />
+              <img
+                id="pauseButton"
+                onclick="pauseAudio()"
+                data-url="https://soundcloud.com/zabrij-radio/djuska-vol1"
+                class="track-button"
+                src="images/buttons/pause.png"
+                style="display: none"
                 width="50"
                 height="50"
               />
@@ -388,5 +442,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
+    <script src="https://w.soundcloud.com/player/api.js"></script>
   </body>
 </html>

@@ -2,77 +2,132 @@ function toggleMenu() {
   const menu = document.querySelector(".menu");
   menu.classList.toggle("active");
 }
-function playAudio() {
+
+const clientID = "MisMbnefMS4Sbq7qAnuzooa5dAwUsEq0"; // Replace with your SoundCloud Client ID
+let currentTrackUrl = null;
+let widget = null;
+
+async function fetchTrackData(trackUrl) {
+  const apiUrl = `https://api.soundcloud.com/resolve?url=${trackUrl}&client_id=${clientID}`;
+  const response = await fetch(apiUrl);
+  const trackData = await response.json();
+
+  return trackData;
+}
+
+function playAudio(trackUrl) {
+  const playButton = document.getElementById("playButton");
   const iframe = document.getElementById("soundcloud-player");
-  iframe.style.display = "block"; // Show the iframe
+  const customPlayer = document.querySelector(".custom-player");
+  const playerContainer = document.getElementById("player-container");
+  const customPlayButton = document.getElementById("custom-play-button");
+  const customPauseButton = document.getElementById("custom-pause-button");
 
-  const trackUrl = document
-    .querySelector(".track-button")
-    .getAttribute("data-url");
-  const embedUrl = `https://w.soundcloud.com/player/?url=${encodeURIComponent(
-    trackUrl
-  )}&auto_play=true`;
+  customPlayer.style.display = "block";
+  playerContainer.style.display = "block";
+  iframe.style.display = "none";
 
-  if (iframe.src !== embedUrl) {
+  if (trackUrl !== currentTrackUrl) {
+    const embedUrl = `https://w.soundcloud.com/player/?url=${encodeURIComponent(
+      trackUrl
+    )}&auto_play=true`;
+
     iframe.src = embedUrl;
     iframe.onload = () => {
-      const widget = SC.Widget(iframe);
+      widget = SC.Widget(iframe);
       widget.play();
     };
+
+    currentTrackUrl = trackUrl;
   } else {
-    const widget = SC.Widget(iframe);
-    widget.play(); // Resume playback if already loaded
+    widget.play();
   }
+
+  customPlayButton.style.display = "none";
+  customPauseButton.style.display = "block";
+}
+
+function pauseAudio() {
+  const customPlayButton = document.getElementById("custom-play-button");
+  const customPauseButton = document.getElementById("custom-pause-button");
+  const playButton = document.getElementById("playButton");
+
+  if (widget) {
+    widget.pause(); // Pause the music
+  }
+
+  // Show the play button, hide the pause button
+  customPlayButton.style.display = "block";
+  customPauseButton.style.display = "none"; // Hide custom pause button
+  playButton.style.display = "block"; // Show play button on artist image
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const buttons = document.querySelectorAll(".track-button");
-  const playerContainer = document.getElementById("player-container");
+  const playButtons = document.querySelectorAll(".track-button");
 
-  let widget; // Declare the SoundCloud widget globally
-
-  buttons.forEach((button) => {
+  playButtons.forEach((button) => {
     button.addEventListener("click", () => {
       const trackUrl = button.getAttribute("data-url");
-      const embedUrl = `https://w.soundcloud.com/player/?url=${encodeURIComponent(
-        trackUrl
-      )}&auto_play=true`;
 
-      const iframe = document.getElementById("soundcloud-player");
-      iframe.src = embedUrl;
+      const customPlayButton = document.getElementById("custom-play-button");
+      customPlayButton.setAttribute("data-url", trackUrl);
 
-      // Show the player container and pause button
-      playerContainer.style.display = "block";
-      document.getElementById("pauseButton").style.display = "inline-block";
-
-      // Initialize the SoundCloud widget
-      iframe.onload = () => {
-        widget = SC.Widget(iframe); // SoundCloud Widget
-      };
+      playAudio(trackUrl);
     });
   });
+  // const pauseButton = document.getElementById("pauseButton");
+  // pauseButton.addEventListener("click", pauseAudio);
 
-  // Pause button functionality
-  document.getElementById("pauseButton").addEventListener("click", () => {
-    if (widget) {
-      widget.pause(); // Pause the music
-    }
-    document.getElementById("playButton").style.display = "inline-block"; // Show play button
-    document.getElementById("pauseButton").style.display = "none"; // Hide pause button
+  const customPlayButton = document.getElementById("custom-play-button");
+  customPlayButton.addEventListener("click", () => {
+    const trackUrl = customPlayButton.getAttribute("data-url");
+    playAudio(trackUrl);
   });
 });
 
-// <a id="playSound" onclick="playAudio()"> <img src="images/icons8-play-48 (1).png" /></a>
+function setupProgressBar() {
+  const progressContainer = document.getElementById("progress-container");
+  const progressBar = document.getElementById("progress-bar");
+
+  if (!widget) return;
+
+  // Update the progress bar as the track plays
+  widget.bind(SC.Widget.Events.PLAY_PROGRESS, function (event) {
+    const progressPercent = (event.currentPosition / event.duration) * 100;
+    progressBar.style.width = `${progressPercent}%`; // Update the progress bar width
+  });
+
+  // Allow users to click on the progress bar to seek
+  progressContainer.addEventListener("click", (e) => {
+    const rect = progressContainer.getBoundingClientRect(); // Get the container's dimensions
+    const offsetX = e.clientX - rect.left; // Click position relative to the container
+    const newPercent = (offsetX / rect.width) * 100; // Calculate the percentage
+
+    widget.getDuration((duration) => {
+      const newTime = (duration / 100) * newPercent;
+
+      widget.seekTo(newTime); // Seek to the new position
+    });
+  });
+}
+
+// Add this to your existing DOMContentLoaded event
+document.addEventListener("DOMContentLoaded", () => {
+  const iframe = document.getElementById("soundcloud-player");
+
+  iframe.onload = () => {
+    widget = SC.Widget(iframe); // Initialize the SoundCloud widget
+    setupProgressBar(); // Initialize the progress bar
+  };
+});
 
 function handleSearch() {
-  // Get the search query from the input field and convert it to lowercase
   const query = document.getElementById("searchBar").value.toLowerCase();
   console.log(`Query: ${query}`);
-  // Select all artist elements and the results div
+
   const artists = document.querySelectorAll(".artist");
   const resultsDiv = document.getElementById("searchResults");
 
-  // Clear any previous "No artists found" message
   resultsDiv.innerHTML = "";
 
   // Track if any results match the query
