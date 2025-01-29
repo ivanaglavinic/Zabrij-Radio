@@ -35,38 +35,15 @@
     <section id="main">
       <h1 class="text-start">ARCHIVE</h1>
       <div class="player-container" id="player-container" style="display: none">
-        <div class="custom-player">
-          <img
-            src="images/buttons/play.png"
-            class="custom-play-button"
-            id="custom-play-button"
-            onclick="playAudio()"
-            data-url=""
-          />
-
-          <img
-            src="images/buttons/pause.png"
-            class="custom-pause-button"
-            id="custom-pause-button"
-            onclick="pauseAudio()"
-            style="display: none"
-          />
-          <div class="progress-container" id="progress-container">
-            <div class="custom-progress-bar" id="progress-bar"></div>
-          </div>
-        </div>
-
         <iframe
-          id="soundcloud-player"
+          id="player"
           width="100%"
-          height="100"
+          height="20"
           scrolling="no"
           frameborder="no"
-          style="display: none"
           allow="autoplay"
-          src="https://w.soundcloud.com/player/?url="
-        >
-        </iframe>
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2016545731&color=%23efce65&inverse=true&auto_play=true&show_user=true"
+        ></iframe>
       </div>
       <div class="container text-start mt-5 p-0">
         <div class="row row-adjust">
@@ -82,8 +59,7 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/djuska-vol1"
+                onclick="changeTrack('2016545731')"
                 class="track-button"
                 src="images/buttons/play.png"
                 style="display: block"
@@ -112,8 +88,7 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/arya-p-vol1-zabrij-radio"
+                onclick="changeTrack('2013503435')"
                 class="track-button"
                 src="images/buttons/play.png"
                 style="display: block"
@@ -140,20 +115,10 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/skrabitz-vol-1-zabrij-radio"
+                onclick="changeTrack('2006827579')"
                 class="track-button"
                 src="images/buttons/play.png"
-                width="50"
-                height="50"
-              />
-              <img
-                id="pauseButton"
-                onclick="pauseAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/djuska-vol1"
-                class="track-button"
-                src="images/buttons/pause.png"
-                style="display: none"
+                style="display: block"
                 width="50"
                 height="50"
               />
@@ -179,20 +144,10 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/nikko-vol-1-zabrij-radio"
+                onclick="changeTrack('2011364915')"
                 class="track-button"
                 src="images/buttons/play.png"
-                width="50"
-                height="50"
-              />
-              <img
-                id="pauseButton"
-                onclick="pauseAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/djuska-vol1"
-                class="track-button"
-                src="images/buttons/pause.png"
-                style="display: none"
+                style="display: block"
                 width="50"
                 height="50"
               />
@@ -215,20 +170,10 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/marcela-vol1-zabrij-radio"
+                onclick="changeTrack('2006871003')"
                 class="track-button"
                 src="images/buttons/play.png"
-                width="50"
-                height="50"
-              />
-              <img
-                id="pauseButton"
-                onclick="pauseAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/djuska-vol1"
-                class="track-button"
-                src="images/buttons/pause.png"
-                style="display: none"
+                style="display: block"
                 width="50"
                 height="50"
               />
@@ -255,10 +200,10 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/stank-off-vol1-zabrij-radio"
+                onclick="changeTrack('2006861087')"
                 class="track-button"
                 src="images/buttons/play.png"
+                style="display: block"
                 width="50"
                 height="50"
               />
@@ -285,10 +230,10 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/dj-borna-vol1-zabrij-radio"
+                onclick="changeTrack('2006882219')"
                 class="track-button"
                 src="images/buttons/play.png"
+                style="display: block"
                 width="50"
                 height="50"
               />
@@ -313,10 +258,10 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/two-seven-vol1-zabrij-radio"
+                onclick="changeTrack('2006853139')"
                 class="track-button"
                 src="images/buttons/play.png"
+                style="display: block"
                 width="50"
                 height="50"
               />
@@ -340,10 +285,10 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/skrabitz-vol-1-zabrij-radio"
+                onclick="changeTrack('2006848955')"
                 class="track-button"
                 src="images/buttons/play.png"
+                style="display: block"
                 width="50"
                 height="50"
               />
@@ -367,10 +312,10 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/nikko-vol-1-zabrij-radio"
+                onclick="changeTrack('2006843607')"
                 class="track-button"
                 src="images/buttons/play.png"
+                style="display: block"
                 width="50"
                 height="50"
               />
@@ -393,10 +338,10 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/nikko-vol-1-zabrij-radio"
+                onclick="changeTrack('2006782639')"
                 class="track-button"
                 src="images/buttons/play.png"
+                style="display: block"
                 width="50"
                 height="50"
               />
@@ -418,10 +363,10 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/nikko-vol-1-zabrij-radio"
+                onclick="changeTrack('2006779347')"
                 class="track-button"
                 src="images/buttons/play.png"
+                style="display: block"
                 width="50"
                 height="50"
               />

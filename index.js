@@ -15,8 +15,8 @@ async function fetchTrackData(trackUrl) {
   return trackData;
 }
 
-function playAudio(trackUrl) {
-  const playButton = document.getElementById("playButton");
+async function playAudio(trackUrl) {
+  //const playButton = document.getElementById("playButton");
   const iframe = document.getElementById("soundcloud-player");
   const customPlayer = document.querySelector(".custom-player");
   const playerContainer = document.getElementById("player-container");
@@ -36,6 +36,9 @@ function playAudio(trackUrl) {
     iframe.onload = () => {
       widget = SC.Widget(iframe);
       widget.play();
+
+      setupProgressBar();
+      generateWaveform(trackUrl);
     };
 
     currentTrackUrl = trackUrl;
@@ -45,6 +48,42 @@ function playAudio(trackUrl) {
 
   customPlayButton.style.display = "none";
   customPauseButton.style.display = "block";
+}
+
+async function fetchWaveform(trackUrl) {
+  const trackData = await fetchTrackData(trackUrl);
+  const waveformUrl = trackData.waveform_url.replace("json", "png"); // Get waveform JSON URL
+  const waveformJsonUrl = waveformUrl.replace(".png", ".json");
+
+  const response = await fetch(waveformJsonUrl);
+  const waveformData = await response.json();
+
+  console.log(trackData);
+
+  return waveformData.samples;
+}
+async function generateWaveform(trackUrl) {
+  const waveformContainer = document.getElementById("progress-bar");
+  waveformContainer.innerHTML = ""; // Clear existing bars
+
+  const waveformPeaks = await fetchWaveform(trackUrl);
+  const totalBars = 50;
+
+  const chunkSize = Math.floor(waveformPeaks.length / totalBars);
+
+  for (let i = 0; i < totalBars; i++) {
+    const chunkStart = i * chunkSize;
+    const chunkEnd = chunkStart + chunkSize;
+    const chunkData = waveformPeaks.slice(chunkStart, chunkEnd);
+
+    const maxPeak = Math.max(...chunkData);
+
+    const bar = document.createElement("div");
+    bar.classList.add("wave-bar");
+    bar.style.height = `${(maxPeak / 255) * 100}%`; // Normalize height
+
+    waveformContainer.appendChild(bar);
+  }
 }
 
 function pauseAudio() {
@@ -94,10 +133,16 @@ function setupProgressBar() {
   // Update the progress bar as the track plays
   widget.bind(SC.Widget.Events.PLAY_PROGRESS, function (event) {
     const progressPercent = (event.currentPosition / event.duration) * 100;
-    progressBar.style.width = `${progressPercent}%`; // Update the progress bar width
+    const waveBars = document.querySelectorAll(".wave-bar");
+    const playedBars = Math.floor((progressPercent / 100) * waveBars.length);
+
+    progressBar.style.width = `${progressPercent}%`;
+
+    waveBars.forEach((bar, index) => {
+      bar.classList.toggle("played", index < playedBars);
+    });
   });
 
-  // Allow users to click on the progress bar to seek
   progressContainer.addEventListener("click", (e) => {
     const rect = progressContainer.getBoundingClientRect(); // Get the container's dimensions
     const offsetX = e.clientX - rect.left; // Click position relative to the container
@@ -151,4 +196,12 @@ function handleSearch() {
   if (!resultsFound && query !== "") {
     resultsDiv.innerHTML = `<p>No artists found.</p>`;
   }
+}
+
+function changeTrack(trackId) {
+  const iframe = document.getElementById("player");
+  iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&color=%23efce65&inverse=true&auto_play=true&show_user=true`;
+
+  const playerContainer = document.getElementById("player-container");
+  playerContainer.style.display = "block";
 }
