@@ -33,20 +33,69 @@
     </nav>
 
     <section id="main">
+      <div class="slideshow-container">
+        <div
+          class="slide active"
+          style="background-image: url('images/tracks/marcela-track.png')"
+        >
+          <div class="slideshow-track">
+            <div class="slide-info">
+              <div class="slide-name">MARCELLA // vol.1</div>
+              <div class="slide-date">15.01.2025.</div>
+            </div>
+            <div class="slideshow-play">
+              <img
+                id="prev"
+                src="images/buttons/prev.png"
+                style="display: block"
+                width="50"
+                height="50"
+              />
+              <img
+                id="playButton"
+                onclick="changeTrack('2006827579')"
+                src="images/buttons/play.png"
+                style="display: block"
+                width="50"
+                height="50"
+              />
+              <img
+                id="next"
+                src="images/buttons/next.png"
+                style="display: block"
+                width="50"
+                height="50"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="slide"
+          style="background-image: url('images/tracks/stank.off-track.png')"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url('images/tracks/marjan-track.png')"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url('images/tracks/nikko-track.png')"
+        ></div>
+      </div>
+
       <h1 class="text-start">LATEST</h1>
       <div class="player-container" id="player-container" style="display: none">
         <iframe
-          id="soundcloud-player"
+          id="player"
           width="100%"
-          height="100"
+          height="20"
           scrolling="no"
           frameborder="no"
           allow="autoplay"
-          src="https://w.soundcloud.com/player/?url="
-        >
-        </iframe>
+          src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2016545731&color=%23efce65&inverse=true&show_user=true"
+        ></iframe>
       </div>
-      <div class="container text-center mt-5 p-0">
+      <div class="container text-start mt-5 p-0">
         <div class="row row-adjust">
           <div class="col col-adjust">
             <div id="playButtonContainer">
@@ -60,26 +109,21 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/djuska-vol1"
+                onclick="changeTrack('2016545731')"
                 class="track-button"
                 src="images/buttons/play.png"
+                style="display: block"
                 width="50"
                 height="50"
-              />
-              <img
-                id="pauseButton"
-                onclick="pauseAudio()"
-                src="images/buttons/pause.png"
-                width="50"
-                height="50"
-                class="track-button"
-                style="display: none"
               />
             </div>
             <div>
               <h3>SOTO // vol.1</h3>
-              <h2>24.01.2025.</h2>
+              <h2>25.01.2025.</h2>
+
+              <div class="zanr">house</div>
+              <div class="zanr">minimal house</div>
+              <div class="zanr">melodic house</div>
             </div>
           </div>
           <div class="col col-adjust">
@@ -94,26 +138,19 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/pacho-vol1-zabrij-radio"
+                onclick="changeTrack('2013503435')"
                 class="track-button"
                 src="images/buttons/play.png"
+                style="display: block"
                 width="50"
                 height="50"
-              />
-              <img
-                id="pauseButton"
-                onclick="pauseAudio()"
-                src="images/buttons/pause.png"
-                width="50"
-                height="50"
-                class="track-button"
-                style="display: none"
               />
             </div>
             <div>
-              <h3>ARYA P// vol.1</h3>
+              <h3>ARYA P // vol.1</h3>
               <h2>22.01.2025.</h2>
+              <div class="zanr">house</div>
+              <div class="zanr">deep house</div>
             </div>
           </div>
           <div class="col col-adjust">
@@ -128,26 +165,21 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/skrabitz-vol-1-zabrij-radio"
+                onclick="changeTrack('2006827579')"
                 class="track-button"
                 src="images/buttons/play.png"
+                style="display: block"
                 width="50"
                 height="50"
-              />
-              <img
-                id="pauseButton"
-                onclick="pauseAudio()"
-                src="images/buttons/pause.png"
-                width="50"
-                height="50"
-                class="track-button"
-                style="display: none"
               />
             </div>
             <div>
               <h3>MARJAN V. // vol.1</h3>
               <h2>20.01.2025.</h2>
+
+              <div class="zanr">soulful house</div>
+              <div class="zanr">funky house</div>
+              <div class="zanr">disco house</div>
             </div>
           </div>
           <div class="col col-adjust">
@@ -162,26 +194,18 @@
 
               <img
                 id="playButton"
-                onclick="playAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/nikko-vol-1-zabrij-radio"
+                onclick="changeTrack('2011364915')"
                 class="track-button"
                 src="images/buttons/play.png"
-                height="50"
-              />
-              <img
-                id="pauseButton"
-                onclick="pauseAudio()"
-                data-url="https://soundcloud.com/zabrij-radio/djuska-vol1"
-                src="images/buttons/pause.png"
+                style="display: block"
                 width="50"
                 height="50"
-                class="track-button"
-                style="display: none"
               />
             </div>
             <div>
               <h3>DOXIA // vol.1</h3>
               <h2>18.01.2025.</h2>
+              <div class="zanr">techno</div>
             </div>
           </div>
         </div>

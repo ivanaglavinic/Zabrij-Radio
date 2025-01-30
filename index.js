@@ -15,17 +15,12 @@ async function fetchTrackData(trackUrl) {
   return trackData;
 }
 
-async function playAudio(trackUrl) {
+/*async function playAudio(trackUrl) {
   //const playButton = document.getElementById("playButton");
-  const iframe = document.getElementById("soundcloud-player");
-  const customPlayer = document.querySelector(".custom-player");
-  const playerContainer = document.getElementById("player-container");
-  const customPlayButton = document.getElementById("custom-play-button");
-  const customPauseButton = document.getElementById("custom-pause-button");
 
-  customPlayer.style.display = "block";
+  const playerContainer = document.getElementById("player-container");
+
   playerContainer.style.display = "block";
-  iframe.style.display = "none";
 
   if (trackUrl !== currentTrackUrl) {
     const embedUrl = `https://w.soundcloud.com/player/?url=${encodeURIComponent(
@@ -36,21 +31,15 @@ async function playAudio(trackUrl) {
     iframe.onload = () => {
       widget = SC.Widget(iframe);
       widget.play();
-
-      setupProgressBar();
-      generateWaveform(trackUrl);
     };
 
     currentTrackUrl = trackUrl;
   } else {
     widget.play();
   }
+}*/
 
-  customPlayButton.style.display = "none";
-  customPauseButton.style.display = "block";
-}
-
-async function fetchWaveform(trackUrl) {
+/*async function fetchWaveform(trackUrl) {
   const trackData = await fetchTrackData(trackUrl);
   const waveformUrl = trackData.waveform_url.replace("json", "png"); // Get waveform JSON URL
   const waveformJsonUrl = waveformUrl.replace(".png", ".json");
@@ -62,7 +51,7 @@ async function fetchWaveform(trackUrl) {
 
   return waveformData.samples;
 }
-async function generateWaveform(trackUrl) {
+/*async function generateWaveform(trackUrl) {
   const waveformContainer = document.getElementById("progress-bar");
   waveformContainer.innerHTML = ""; // Clear existing bars
 
@@ -84,9 +73,9 @@ async function generateWaveform(trackUrl) {
 
     waveformContainer.appendChild(bar);
   }
-}
+}*/
 
-function pauseAudio() {
+/*function pauseAudio() {
   const customPlayButton = document.getElementById("custom-play-button");
   const customPauseButton = document.getElementById("custom-pause-button");
   const playButton = document.getElementById("playButton");
@@ -165,7 +154,7 @@ document.addEventListener("DOMContentLoaded", () => {
     setupProgressBar(); // Initialize the progress bar
   };
 });
-
+*/
 function handleSearch() {
   const query = document.getElementById("searchBar").value.toLowerCase();
   console.log(`Query: ${query}`);
@@ -175,12 +164,9 @@ function handleSearch() {
 
   resultsDiv.innerHTML = "";
 
-  // Track if any results match the query
   let resultsFound = false;
 
-  // Loop through all artist elements
   artists.forEach((artist) => {
-    // Get the artist's name from the data-name attribute
     const artistName = artist.getAttribute("data-name").toLowerCase();
     console.log(`Artist Name: ${artistName}`);
     // Check if the artist's name includes the search query
@@ -203,5 +189,42 @@ function changeTrack(trackId) {
   iframe.src = `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${trackId}&color=%23efce65&inverse=true&auto_play=true&show_user=true`;
 
   const playerContainer = document.getElementById("player-container");
+
   playerContainer.style.display = "block";
 }
+
+let slides = document.querySelectorAll(".slide");
+let index = 0;
+
+function showSlides() {
+  slides.forEach((slide) => slide.classList.remove("active"));
+  slides[index].classList.add("active");
+}
+
+function moveSlide(step) {
+  index += step;
+  console.log("Moving slide to index:", index);
+
+  // Loop back to the first slide if we're at the last one
+  if (index >= slides.length) {
+    index = 0;
+  }
+
+  // Loop back to the last slide if we're at the first one
+  if (index < 0) {
+    index = slides.length - 1;
+  }
+
+  showSlides();
+}
+document.getElementById("prev").addEventListener("click", () => moveSlide(-1));
+document.getElementById("next").addEventListener("click", () => moveSlide(1));
+
+console.log(prev);
+// Show the first slide initially
+showSlides();
+
+// Auto slide every 4 seconds
+setInterval(() => {
+  moveSlide(1); // Automatically move to the next slide
+}, 4000);
