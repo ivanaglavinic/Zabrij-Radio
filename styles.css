@@ -27,10 +27,7 @@ h2 {
   font-size: 16px;
   text-align: left;
 }
-h3 {
-  margin-top: 20px;
-  line-height: 1.5;
-}
+
 .links {
   background-color: black;
   border: solid 1px white;
@@ -77,6 +74,14 @@ button {
   margin: 0;
   margin-right: 30px;
   display: flex;
+}
+.menu {
+}
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  color: white;
+  font-size: 40px;
 }
 
 .slideshow-container {
@@ -133,20 +138,13 @@ img {
   cursor: pointer;
 }
 
-#artistList {
-  font-family: "MyCustomFont";
-  font-size: 20px;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  margin-right: 30px;
-  margin-top: 100px;
-}
-
-.artist {
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
+.artist-info {
+  font-family: "Untitled Sans", Arial, Helvetica;
+  font-size: 16px;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  line-height: 1.5;
 }
 .artist-link {
   text-decoration: none;
@@ -194,9 +192,7 @@ img {
   display: none;
 }
 #searchResults {
-  color: red; /* Make the message stand out */
-  margin-top: 20px;
-  font-weight: bold;
+  margin: auto;
 }
 
 #searchForm {
@@ -244,12 +240,6 @@ li a {
   display: flex;
   justify-content: center;
   gap: 4px;
-}
-.menu-icon {
-  display: none;
-  cursor: pointer;
-  color: black;
-  font-size: 40px;
 }
 @media (max-width: 800px) {
   #nav-bar ul {
@@ -405,5 +395,71 @@ footer {
   footer p {
     font-size: 12px;
     padding: 8px;
+  }
+}
+
+@media (max-width: 1020px) {
+  #nav-bar ul {
+    display: none;
+    background-color: black;
+    flex-direction: column;
+    position: absolute;
+    margin: 0;
+    width: 30%;
+    line-height: 2.5;
+    top: 140px;
+    right: 30px;
+    text-align: end;
+  }
+  #nav-bar ul.active {
+    display: flex;
+    font-size: 0.9em;
+  }
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+    color: white;
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 800px) {
+  #nav-bar ul {
+    display: none;
+    background-color: black;
+    flex-direction: column;
+    position: absolute;
+    margin: 0;
+    width: 30%;
+    top: 140px;
+    left: 500px;
+    text-align: end;
+    line-height: 2.5;
+  }
+  #nav-bar ul.active {
+    display: flex;
+    font-size: 0.9em;
+  }
+}
+
+@media (max-width: 600px) {
+  #nav-bar ul {
+    display: none;
+    background-color: black;
+    flex-direction: column;
+    position: absolute;
+    margin: 0;
+    width: 30%;
+    top: 140px;
+    left: 340px;
+    text-align: end;
+    line-height: 2.5;
+  }
+  #nav-bar ul.active {
+    display: flex;
+    font-size: 0.9em;
+  }
+  li {
+    font-size: 16px;
   }
 }

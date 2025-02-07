@@ -26,7 +26,7 @@
       <ul class="menu">
         <li><a href="./archive.html">Archive</a></li>
         <li><a href="./about.html">About us</a></li>
-        <li><a href="./artists.html">Artists</a></li>
+        <li><a href="./shows.html">Shows</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
       <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
@@ -95,9 +95,9 @@
           src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2016545731&color=%23efce65&inverse=true&show_user=true"
         ></iframe>
       </div>
-      <div class="container text-start mt-5 p-0">
+      <div class="container text-start mt-5 p-0" id="artistList">
         <div class="row row-adjust">
-          <div class="col col-adjust">
+          <div class="col col-adjust artist" data-name="Soto">
             <div id="playButtonContainer">
               <img
                 id="picture"
@@ -118,7 +118,10 @@
               />
             </div>
             <div>
-              <h3>SOTO // vol.1</h3>
+              <div class="artist-info">
+                <a href="artists/soto.html" class="artist-link">SOTO</a>
+                <span>// vol. 1</span>
+              </div>
               <h2>25.01.2025.</h2>
 
               <div class="zanr">house</div>
@@ -126,7 +129,7 @@
               <div class="zanr">melodic house</div>
             </div>
           </div>
-          <div class="col col-adjust">
+          <div class="col col-adjust artist" data-name="Arya">
             <div id="playButtonContainer">
               <img
                 id="picture"
@@ -147,13 +150,16 @@
               />
             </div>
             <div>
-              <h3>ARYA P // vol.1</h3>
+              <div class="artist-info">
+                <a href="artists/arya.html" class="artist-link">ARYA</a>
+                <span>// vol. 1</span>
+              </div>
               <h2>22.01.2025.</h2>
               <div class="zanr">house</div>
               <div class="zanr">deep house</div>
             </div>
           </div>
-          <div class="col col-adjust">
+          <div class="col col-adjust artist" data-name="Marjan">
             <div id="playButtonContainer">
               <img
                 id="picture"
@@ -174,7 +180,10 @@
               />
             </div>
             <div>
-              <h3>MARJAN V. // vol.1</h3>
+              <div class="artist-info">
+                <a href="artists/marjan.html" class="artist-link">MARJAN V.</a>
+                <span>// vol. 1</span>
+              </div>
               <h2>20.01.2025.</h2>
 
               <div class="zanr">soulful house</div>
@@ -182,7 +191,7 @@
               <div class="zanr">disco house</div>
             </div>
           </div>
-          <div class="col col-adjust">
+          <div class="col col-adjust artist" data-name="Doxia">
             <div id="playButtonContainer">
               <img
                 id="picture"
@@ -203,7 +212,10 @@
               />
             </div>
             <div>
-              <h3>DOXIA // vol.1</h3>
+              <div class="artist-info">
+                <a href="artists/doxia.html" class="artist-link">DOXIA</a>
+                <span>// vol. 1</span>
+              </div>
               <h2>18.01.2025.</h2>
               <div class="zanr">techno</div>
             </div>
