@@ -19,14 +19,18 @@
     <nav id="nav-bar">
       <div class="logo">
         <a href="./home.html"
-          ><img src="images/logo/bird.jpeg" alt="logo" width="170" height="170"
+          ><img
+            class="logo-picture"
+            src="images/logo/bird.jpeg"
+            alt="logo"
+            width="170"
+            height="170"
         /></a>
       </div>
 
       <ul class="menu">
         <li><a href="./archive.html">Archive</a></li>
         <li><a href="./about.html">About us</a></li>
-        <li><a href="./shows.html">Shows</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
       <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
@@ -37,38 +41,7 @@
         <div
           class="slide active"
           style="background-image: url('images/tracks/marcela-track.png')"
-        >
-          <div class="slideshow-track">
-            <div class="slide-info">
-              <div class="slide-name">MARCELLA // vol.1</div>
-              <div class="slide-date">15.01.2025.</div>
-            </div>
-            <div class="slideshow-play">
-              <img
-                id="prev"
-                src="images/buttons/prev.png"
-                style="display: block"
-                width="50"
-                height="50"
-              />
-              <img
-                id="playButton"
-                onclick="changeTrack('2006827579')"
-                src="images/buttons/play.png"
-                style="display: block"
-                width="50"
-                height="50"
-              />
-              <img
-                id="next"
-                src="images/buttons/next.png"
-                style="display: block"
-                width="50"
-                height="50"
-              />
-            </div>
-          </div>
-        </div>
+        ></div>
         <div
           class="slide"
           style="background-image: url('images/tracks/stank.off-track.png')"
@@ -83,7 +56,7 @@
         ></div>
       </div>
 
-      <h1 class="text-start">LATEST</h1>
+      <h1 class="header">LATEST</h1>
       <div class="player-container" id="player-container" style="display: none">
         <iframe
           id="player"
@@ -95,7 +68,7 @@
           src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2016545731&color=%23efce65&inverse=true&show_user=true"
         ></iframe>
       </div>
-      <div class="container text-start mt-5 p-0" id="artistList">
+      <div class="container mt-5 p-0" id="artistList">
         <div class="row row-adjust">
           <div class="col col-adjust artist" data-name="Soto">
             <div id="playButtonContainer">

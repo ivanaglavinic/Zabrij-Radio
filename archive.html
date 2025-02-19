@@ -18,13 +18,17 @@
     <nav id="nav-bar">
       <div class="logo">
         <a href="./home.html"
-          ><img src="images/logo/bird.jpeg" alt="logo" width="170" height="170"
+          ><img
+            class="logo-picture"
+            src="images/logo/bird.jpeg"
+            alt="logo"
+            width="170"
+            height="170"
         /></a>
       </div>
       <ul class="menu">
         <li><a href="./archive.html">Archive</a></li>
         <li><a href="./about.html">About us</a></li>
-        <li><a href="./shows.html">Shows</a></li>
         <li><a href="./contact.html">Contact</a></li>
       </ul>
       <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
@@ -40,8 +44,8 @@
           placeholder="Find artist..."
           oninput="handleSearch()"
         />
-        <button class="" type="submit" onclick="handleSearch()">
-          <img src="images/buttons/icons8-search-50.png" />
+        <button class="search-button" type="submit" onclick="handleSearch()">
+          <img class="search-picture" src="images/buttons/icons8-search-50.png" />
         </button>
       </form>
       <div class="player-container" id="player-container" style="display: none">

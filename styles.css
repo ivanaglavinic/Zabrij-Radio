@@ -241,27 +241,6 @@ li a {
   justify-content: center;
   gap: 4px;
 }
-@media (max-width: 800px) {
-  #nav-bar ul {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    background-color: #ede1d0;
-    width: 40%;
-
-    line-height: 2;
-    top: 100px;
-    left: 226px;
-  }
-  #nav-bar ul.active {
-    display: flex;
-    font-size: 0.9em;
-  }
-  .menu-icon {
-    display: block;
-  }
-}
-
 #contact-box {
   display: flex;
   flex-direction: column;
@@ -445,21 +424,78 @@ footer {
 @media (max-width: 600px) {
   #nav-bar ul {
     display: none;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.589);
     flex-direction: column;
     position: absolute;
     margin: 0;
-    width: 30%;
-    top: 140px;
-    left: 340px;
+    width: 40%;
+    top: 95px;
+    left: 210px;
     text-align: end;
-    line-height: 2.5;
+    line-height: 2.1;
+    z-index: 9999;
   }
   #nav-bar ul.active {
     display: flex;
     font-size: 0.9em;
   }
   li {
-    font-size: 16px;
+    font-size: 18px;
+    margin: 3px 12px;
   }
+  .slideshow-container {
+    width: 124.15%;
+    height: 200px;
+    margin: 5px 0px 50px 0px;
+  }
+  .row,
+  .row-adjust {
+    max-width: 97%;
+    margin: 0 auto;
+  }
+  .logo {
+    padding-left: 0px;
+    margin-left: -30px;
+  }
+  .logo-picture {
+    width: 130px;
+    height: 130px;
+  }
+  h1 {
+    font-size: 32px;
+    border-bottom: 1px solid white;
+  }
+  #searchBar {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+    padding: 5px;
+  }
+  .search-picture {
+    width: 25px;
+  }
+  .about-us {
+    width: 100%;
+    line-height: 1.8;
+    margin: 50px auto;
+    font-size: 14px;
+  }
+  .about-head {
+    font-size: 28px;
+    border-bottom: 1px solid white;
+    margin-bottom: 50px;
+  }
+  .contact-form {
+    width: 100%;
+  }
+  .button-form {
+    width: 50%;
+  }
+  #contact {
+    margin-top: 0px;
+  }
+  footer {
+  padding: 10px;
+}
 }

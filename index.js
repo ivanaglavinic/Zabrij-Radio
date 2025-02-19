@@ -77,14 +77,18 @@ function moveSlide(step) {
 
   showSlides();
 }
-document.getElementById("prev").addEventListener("click", () => moveSlide(-1));
-document.getElementById("next").addEventListener("click", () => moveSlide(1));
-
-console.log(prev);
-// Show the first slide initially
 showSlides();
 
 // Auto slide every 4 seconds
 setInterval(() => {
   moveSlide(1); // Automatically move to the next slide
 }, 4000);
+
+function goBack() {
+  // Check if the previous page is from your own site
+  if (document.referrer.includes(window.location.hostname)) {
+    window.history.back(); // Go back normally
+  } else {
+    window.location.href = "home.html"; // Redirect to a safe fallback page
+  }
+}

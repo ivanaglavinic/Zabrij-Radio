@@ -37,9 +37,9 @@
     </nav>
     <section id="main" class="mb-5">
       <h1 class="text-start"></h1>
-      <a href="../artists.html" class="back-button">
+      <button onclick="goBack()" class="back-button">
         <img src="../images/buttons/back.png" />
-      </a>
+      </button>
       <div class="container mt-5 mb-5 p-4">
         <div class="row">
           <div class="col text-start">
@@ -95,25 +95,23 @@
           style="display: none"
         >
           <iframe
-            id="soundcloud-player"
-            width="30%"
-            height="80"
+            id="player"
+            width="100%"
+            height="20"
             scrolling="no"
             frameborder="no"
             allow="autoplay"
-            style="margin: 20px 80px"
-            src="https://w.soundcloud.com/player/?url="
-          >
-          </iframe>
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2016545731&color=%23efce65&inverse=true&show_user=true"
+          ></iframe>
         </div>
         <div id="playButtonContainer" class="list-of-tracks">
           <div>ARYA P // vol.1</div>
           <img
             id="playButton"
-            onclick="playAudio()"
-            data-url="https://soundcloud.com/zabrij-radio/arya-p-vol1-zabrij-radio"
+            onclick="changeTrack('2013503435')"
             class="track-button"
             src="../images/buttons/play.png"
+            style="display: block"
             width="50"
             height="50"
           />
