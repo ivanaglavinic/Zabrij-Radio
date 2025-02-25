@@ -51,8 +51,8 @@ button {
   margin-bottom: 5px;
 }
 .row-adjust {
-  row-gap: 28px;
-  column-gap: 12px;
+  row-gap: 20px;
+  column-gap: 0px;
 }
 
 .col-adjust {
@@ -75,8 +75,7 @@ button {
   margin-right: 30px;
   display: flex;
 }
-.menu {
-}
+
 .menu-icon {
   display: none;
   cursor: pointer;
@@ -154,6 +153,10 @@ img {
   color: white;
   text-decoration: underline;
 }
+.artist-content {
+  margin: 20px auto;
+  padding: 24px;
+}
 .artist-name {
   border: 1px solid white;
   font-size: 35px;
@@ -164,7 +167,6 @@ img {
 }
 .back-button {
   border: 1px solid white;
-
   cursor: pointer;
   display: block;
   width: 4%;
@@ -179,8 +181,21 @@ img {
 }
 .list-of-tracks {
   border: 1px solid white;
+  width: 30%;
   margin: 0px 80px;
-  padding: 14px 25px 14px 60px;
+  font-size: 16px;
+  padding: 5px;
+  row-gap: 15px;
+}
+.special-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.track-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .my-websites {
   display: flex;
@@ -343,7 +358,9 @@ label {
   position: relative;
   display: inline-block;
 }
-
+.picture {
+  max-width: 100%;
+}
 #playSound {
   position: absolute;
   top: 8%;
@@ -359,7 +376,6 @@ label {
   border: none;
   cursor: pointer;
   background-color: #efce65;
-
   transition: background-color 0.3s;
 }
 
@@ -496,6 +512,58 @@ footer {
     margin-top: 0px;
   }
   footer {
-  padding: 10px;
-}
+    padding: 10px;
+  }
+  .back-button {
+    border: 1px solid white;
+    cursor: pointer;
+    display: block;
+    width: 15%;
+    padding: 0px;
+    margin-top: 25px;
+  }
+  .back-picture {
+    width: 100%;
+  }
+  .artist-name {
+    font-size: 26px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 25px;
+  }
+  .artist-content {
+    margin: 20px auto;
+    padding: 0px;
+  }
+  .artist-text {
+    font-size: 14px;
+  }
+  .tracks-header {
+    display: block;
+    width: 30%;
+    font-size: 22px;
+    margin: 15px 16px;
+  }
+  .list-of-tracks {
+    width: 90%;
+    margin: 0px 18px;
+    font-size: 13px;
+    padding: 2px;
+    row-gap: 15px;
+  }
+
+  .my-websites {
+    gap: 4px;
+    margin-bottom: 15px;
+  }
+  .special-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .track-name {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+  }
 }
