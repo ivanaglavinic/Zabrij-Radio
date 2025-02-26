@@ -180,12 +180,15 @@ img {
   margin: 20px 80px;
 }
 .list-of-tracks {
-  border: 1px solid white;
   width: 30%;
   margin: 0px 80px;
   font-size: 16px;
   padding: 5px;
   row-gap: 15px;
+}
+.track-list {
+  border: 1px solid white;
+  margin-bottom: 20px;
 }
 .special-button {
   display: flex;
@@ -194,7 +197,6 @@ img {
 }
 .track-name {
   display: flex;
-  justify-content: center;
   align-items: center;
 }
 .my-websites {
@@ -551,7 +553,10 @@ footer {
     padding: 2px;
     row-gap: 15px;
   }
-
+  .track-list {
+    border: 1px solid white;
+    margin-bottom: 15px;
+  }
   .my-websites {
     gap: 4px;
     margin-bottom: 15px;

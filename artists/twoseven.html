@@ -16,7 +16,7 @@
     <title>Zabrij Radio</title>
   </head>
   <body>
-    <nav id="nav-bar" class="mb-5">
+    <nav id="nav-bar">
       <div class="logo">
         <a href="../home.html"
           ><img
@@ -30,7 +30,6 @@
       <ul class="menu">
         <li><a href="../archive.html">Archive</a></li>
         <li><a href="../about.html">About us</a></li>
-        <li><a href="../artists.html">Artists</a></li>
         <li><a href="../contact.html">Contact</a></li>
       </ul>
       <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
@@ -38,13 +37,13 @@
     <section id="main" class="mb-5">
       <h1 class="text-start"></h1>
       <button onclick="goBack()" class="back-button">
-        <img src="../images/buttons/back.png" />
+        <img class="back-picture" src="../images/buttons/back.png" />
       </button>
-      <div class="container mt-5 mb-5 p-4">
+      <div class="container artist-content">
         <div class="row">
-          <div class="col text-start">
+          <div class="col-12 col-lg-6 text-start">
             <h2 class="artist-name">TWO SEVEN</h2>
-            <p>
+            <p class="artist-text">
               Seeks to express his authentic self in a fast-paced world, finding
               solace and freedom behind the decks. Music has always been his
               voice, allowing him to communicate truths that words can't.
@@ -67,7 +66,7 @@
             </div>
           </div>
 
-          <div class="col text-end">
+          <div class="col-12 col-lg-6 text-end">
             <img
               src="../images/artists/twoseven.png"
               alt="artist"
@@ -91,21 +90,38 @@
             height="20"
             scrolling="no"
             frameborder="no"
-            allow="autoplay"
             src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/2016545731&color=%23efce65&inverse=true&show_user=true"
           ></iframe>
         </div>
-        <div id="playButtonContainer" class="list-of-tracks">
-          <div>TWO SEVEN // vol.1</div>
-          <img
-            id="playButton"
-            onclick="changeTrack('2006853139')"
-            class="track-button"
-            src="../images/buttons/play.png"
-            style="display: block"
-            width="50"
-            height="50"
-          />
+        <div id="playButtonContainer" class="container list-of-tracks">
+          <div class="row track-list">
+            <div class="col-2 special-button">
+              <img
+                id="playButton"
+                onclick="changeTrack('2019303573')"
+                src="../images/buttons/play.png"
+                style="display: block"
+                width="50"
+                height="50"
+              />
+            </div>
+            <div class="col-10 track-name">
+              TWO SEVEN - Pulse Interrupted // vol. 2
+            </div>
+          </div>
+          <div class="row track-list">
+            <div class="col-2 special-button">
+              <img
+                id="playButton"
+                onclick="changeTrack('2006853139')"
+                src="../images/buttons/play.png"
+                style="display: block"
+                width="50"
+                height="50"
+              />
+            </div>
+            <div class="col-10 track-name text-start">TWO SEVEN // vol.1</div>
+          </div>
         </div>
       </div>
     </section>
