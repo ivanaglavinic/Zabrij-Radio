@@ -66,8 +66,51 @@ button {
 }
 .logo {
   padding-left: 10px;
+  display: flex;
+  flex-grow: 2;
+}
+.trackInfo {
+  width: 40%;
+  overflow: hidden;
+  background: black;
+  padding: 10px 0;
+  display: flex;
+  align-items: center;
 }
 
+.now-playing {
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
+  white-space: nowrap;
+  animation: track-live 9s linear infinite;
+}
+
+@keyframes track-live {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+.radio-container {
+  text-align: center;
+  margin: 55px 10px 55px 0px;
+}
+
+.radio-button {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  padding: 3px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.radio-button:hover {
+  background-color: #e68900;
+}
 .menu {
   list-style-type: none;
   padding: 0;

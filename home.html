@@ -26,6 +26,23 @@
             width="170"
             height="170"
         /></a>
+
+        <div class="radio-container">
+          <div id="toggleRadio" class="radio-button">
+            <img src="/images/buttons/dot.png" alt="" /> ON AIR
+          </div>
+          <audio id="radioStream">
+            <source
+              src="https://your-station.airtime.pro:8000/live.mp3"
+              type="audio/mpeg"
+            />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+
+        <div id="trackInfo" class="trackInfo">
+          <div class="now-playing">Now Playing:</div>
+        </div>
       </div>
 
       <ul class="menu">
@@ -199,6 +216,12 @@
         </div>
       </div>
     </section>
+
+    <div class="marquee-container">
+      <div class="marquee-text">
+        Now Playing: Your Radio Station - Live Stream 🎵
+      </div>
+    </div>
 
     <footer><p>| ALL RIGHTS RESERVED • zabrijradio@gmail.com |</p></footer>
     <script src="index.js"></script>

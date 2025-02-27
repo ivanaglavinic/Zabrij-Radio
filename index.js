@@ -92,3 +92,38 @@ function goBack() {
     window.location.href = "home.html"; // Redirect to a safe fallback page
   }
 }
+const streamAudio = document.getElementById("radioStream");
+const controlButton = document.getElementById("toggleRadio");
+const trackInfo = document.getElementById("trackInfo");
+
+// Toggle Play/Pause
+controlButton.addEventListener("click", () => {
+  if (streamAudio.paused) {
+    streamAudio.play();
+    controlButton.textContent = "⏸ Pause";
+  } else {
+    streamAudio.pause();
+    controlButton.textContent = "▶ Play";
+  }
+});
+
+// Function to fetch currently playing track
+function fetchTrackInfo() {
+  fetch("https://zabrijradio.airtime.pro/api/live-info-v2")
+    .then((response) => response.json())
+    .then((data) => {
+      if (data && data.now_playing) {
+        trackInfo.textContent = `Now Playing: ${data.now_playing.name}`;
+      } else {
+        trackInfo.textContent = "No live track info available";
+      }
+    })
+    .catch((error) => {
+      trackInfo.textContent = "Error loading track info";
+      console.error("Error fetching track info:", error);
+    });
+}
+
+// Fetch track info every 10 seconds
+setInterval(fetchTrackInfo, 10000);
+fetchTrackInfo();
