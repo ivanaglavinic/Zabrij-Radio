@@ -94,7 +94,7 @@ function goBack() {
 }
 const streamAudio = document.getElementById("radioStream");
 const controlButton = document.getElementById("toggleRadio");
-const trackInfo = document.getElementById("trackInfo");
+const nowPlaying = document.querySelector(".now-playing"); // Select the correct div
 
 // Toggle Play/Pause
 controlButton.addEventListener("click", () => {
@@ -113,13 +113,13 @@ function fetchTrackInfo() {
     .then((response) => response.json())
     .then((data) => {
       if (data && data.now_playing) {
-        trackInfo.textContent = `Now Playing: ${data.now_playing.name}`;
+        nowPlaying.textContent = data.now_playing.name; // Update only song text
       } else {
-        trackInfo.textContent = "No live track info available";
+        nowPlaying.textContent = "No live track info available";
       }
     })
     .catch((error) => {
-      trackInfo.textContent = "Error loading track info";
+      nowPlaying.textContent = "Error loading track info";
       console.error("Error fetching track info:", error);
     });
 }
