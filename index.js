@@ -100,10 +100,10 @@ const nowPlaying = document.querySelector(".now-playing"); // Select the correct
 controlButton.addEventListener("click", () => {
   if (streamAudio.paused) {
     streamAudio.play();
-    controlButton.textContent = "⏸ Pause";
+    //controlButton.textContent = "yes";
   } else {
     streamAudio.pause();
-    controlButton.textContent = "▶ Play";
+    //controlButton.textContent = "Play";
   }
 });
 
@@ -115,7 +115,7 @@ function fetchTrackInfo() {
       if (data && data.now_playing) {
         nowPlaying.textContent = data.now_playing.name; // Update only song text
       } else {
-        nowPlaying.textContent = "No live track info available";
+        nowPlaying.textContent = "We are on the break :)";
       }
     })
     .catch((error) => {
