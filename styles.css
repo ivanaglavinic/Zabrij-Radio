@@ -43,14 +43,6 @@ button {
   border: solid 1px white;
   background-color: black;
 }
-.zanr {
-  border: solid 1px white;
-  border-radius: 16px;
-  display: inline-block;
-  font-size: 12px;
-  padding: 2px 5px;
-  margin-bottom: 5px;
-}
 .row-adjust {
   row-gap: 20px;
   column-gap: 0px;
@@ -205,13 +197,26 @@ img {
   color: white;
   text-decoration: underline;
 }
+.zanr {
+  font-family: "Untitled Sans", Arial, Helvetica;
+  border: solid 1px white;
+  border-radius: 16px;
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 5px;
+  margin-bottom: 5px;
+}
+.artist-text {
+  font-size: 15px;
+}
 .artist-content {
   margin: 20px auto;
   padding: 24px;
 }
 .artist-name {
+  font-family: "MyCustomFont", sans-serif;
   border: 1px solid white;
-  font-size: 35px;
+  font-size: 32px;
   width: 60%;
   text-align: center;
   padding: 20px;
@@ -246,10 +251,12 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
 }
 .track-name {
   display: flex;
   align-items: center;
+  padding: 0;
 }
 .my-websites {
   display: flex;
@@ -319,7 +326,6 @@ li a {
 #contact-box {
   display: flex;
   flex-direction: column;
-
   border-radius: 10px;
   margin: 50px auto;
   width: 30%;
@@ -526,7 +532,7 @@ footer {
     margin: 3px 12px;
   }
   .slideshow-container {
-    width: 124.15%;
+    width: 112%;
     height: 200px;
     margin: 5px 0px 35px 0px;
   }
@@ -642,9 +648,6 @@ footer {
     font-size: 12px;
     padding: 5px;
   }
-  .radio-button:hover {
-    background-color: #e68900;
-  }
 
   .logo-picture {
     width: 100%;
@@ -656,7 +659,5 @@ footer {
   .radio-container {
     width: 32%;
     margin: auto;
-  }
-  .trackInfo {
   }
 }
