@@ -17,14 +17,34 @@
   <body>
     <nav id="nav-bar">
       <div class="logo">
-        <a href="./home.html"
-          ><img
-            class="logo-picture"
-            src="images/logo/bird.jpeg"
-            alt="logo"
-            width="170"
-            height="170"
-        /></a>
+        <div class="logo-space">
+          <a href="./home.html"
+            ><img
+              class="logo-picture"
+              src="images/logo/bird.jpeg"
+              alt="logo"
+              width="170"
+              height="170"
+          /></a>
+        </div>
+        <div class="radio-container">
+          <div id="toggleRadio" class="radio-button">
+            <img class="dot-button" src="/images/buttons/dot.png" alt="" /> ON
+            AIR
+          </div>
+          <audio id="radioStream">
+            <source
+              src="https://your-station.airtime.pro:8000/live.mp3"
+              type="audio/mpeg"
+            />
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div id="trackInfo" class="trackInfo">
+          <div class="now-playing-wrapper">
+            <div class="now-playing"></div>
+          </div>
+        </div>
       </div>
       <ul class="menu">
         <li><a href="./archive.html">Archive</a></li>

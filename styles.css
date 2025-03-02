@@ -6,6 +6,7 @@
 }
 
 body {
+  font-family: "MyCustomFont", sans-serif;
   background-color: black;
   color: white;
   letter-spacing: 2px;
@@ -89,7 +90,6 @@ button {
 .now-playing {
   font-size: 16px;
   color: white;
-  font-weight: bold;
   white-space: nowrap;
   display: inline-block;
   animation: track-live 9s linear infinite;
@@ -288,7 +288,7 @@ li a {
   color: white;
 }
 .about-us {
-  width: 50%;
+  width: 80%;
   margin: 100px auto;
   text-align: center;
   line-height: 2;
@@ -298,17 +298,23 @@ li a {
   font-size: 36px;
   font-family: "MyCustomFont", sans-serif;
   text-align: center;
+  margin-bottom: 30px;
 }
 .team {
+  font-family: "MyCustomFont", sans-serif;
   text-align: center;
 }
 .member-name {
+  font-size: 15px;
   text-align: center;
+  font-family: "MyCustomFont", sans-serif;
 }
 .member-websites {
+  font-size: 15px;
   display: flex;
   justify-content: center;
   gap: 4px;
+  margin-bottom: 10px;
 }
 #contact-box {
   display: flex;
@@ -492,6 +498,12 @@ footer {
 }
 
 @media (max-width: 600px) {
+  body {
+    margin: 0px 20px;
+  }
+  #nav-bar {
+    margin-bottom: 15px;
+  }
   #nav-bar ul {
     display: none;
     background-color: rgba(0, 0, 0, 0.589);
@@ -516,7 +528,7 @@ footer {
   .slideshow-container {
     width: 124.15%;
     height: 200px;
-    margin: 5px 0px 50px 0px;
+    margin: 5px 0px 35px 0px;
   }
   .row,
   .row-adjust {
@@ -547,13 +559,12 @@ footer {
   }
   .about-us {
     width: 100%;
-    line-height: 1.8;
+    line-height: 1.6;
     margin: 50px auto;
-    font-size: 14px;
+    font-size: 12px;
   }
   .about-head {
     font-size: 28px;
-    border-bottom: 1px solid white;
     margin-bottom: 50px;
   }
   .contact-form {
