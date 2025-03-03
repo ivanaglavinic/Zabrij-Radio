@@ -53,36 +53,39 @@ function changeTrack(trackId) {
   playerContainer.style.display = "block";
 }
 
-let slides = document.querySelectorAll(".slide");
-let index = 0;
+window.onload = function () {
+  let slides = document.querySelectorAll(".slide");
+  let index = 0;
 
-function showSlides() {
-  slides.forEach((slide) => slide.classList.remove("active"));
-  slides[index].classList.add("active");
-}
-
-function moveSlide(step) {
-  index += step;
-  console.log("Moving slide to index:", index);
-
-  // Loop back to the first slide if we're at the last one
-  if (index >= slides.length) {
-    index = 0;
+  function showSlides() {
+    slides.forEach((slide) => slide.classList.remove("active"));
+    slides[index].classList.add("active");
   }
 
-  // Loop back to the last slide if we're at the first one
-  if (index < 0) {
-    index = slides.length - 1;
+  function moveSlide(step) {
+    index += step;
+    console.log("Moving slide to index:", index);
+
+    // Loop back to the first slide if we're at the last one
+    if (index >= slides.length) {
+      index = 0;
+    }
+
+    // Loop back to the last slide if we're at the first one
+    if (index < 0) {
+      index = slides.length - 1;
+    }
+
+    showSlides();
   }
 
   showSlides();
-}
-showSlides();
 
-// Auto slide every 4 seconds
-setInterval(() => {
-  moveSlide(1); // Automatically move to the next slide
-}, 4000);
+  // Auto slide every 4 seconds
+  setInterval(() => {
+    moveSlide(1); // Automatically move to the next slide
+  }, 4000);
+};
 
 function goBack() {
   // Check if the previous page is from your own site
@@ -94,26 +97,32 @@ function goBack() {
 }
 const streamAudio = document.getElementById("radioStream");
 const controlButton = document.getElementById("toggleRadio");
-const nowPlaying = document.querySelector(".now-playing"); // Select the correct div
+const nowPlaying = document.querySelector(".now-playing");
 
-// Toggle Play/Pause
+// Play/Pause the stream (button text does NOT change)
 controlButton.addEventListener("click", () => {
   if (streamAudio.paused) {
-    streamAudio.play();
-    //controlButton.textContent = "yes";
+    streamAudio
+      .play()
+      .catch((error) => console.error("Playback error:", error));
   } else {
     streamAudio.pause();
-    //controlButton.textContent = "Play";
   }
 });
 
-// Function to fetch currently playing track
+// Function to fetch the currently playing track
 function fetchTrackInfo() {
   fetch("https://zabrijradio.airtime.pro/api/live-info-v2")
     .then((response) => response.json())
     .then((data) => {
-      if (data && data.now_playing) {
-        nowPlaying.textContent = data.now_playing.name; // Update only song text
+      console.log("API Response:", data); // Log the full response to see the structure in console
+      if (
+        data &&
+        data.tracks &&
+        data.tracks.current &&
+        data.tracks.current.name
+      ) {
+        nowPlaying.textContent = data.tracks.current.name; // Use the correct path to access the song name
       } else {
         nowPlaying.textContent = "We are on the break :)";
       }
