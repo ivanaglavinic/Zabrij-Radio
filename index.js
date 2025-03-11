@@ -118,19 +118,21 @@ function fetchTrackInfo() {
   fetch(`https://api.radiocult.fm/api/station/${stationId}/schedule/live`, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${apiKey}`, // Your API key
+      "x-api-key": apiKey, // Your API key
       "Content-Type": "application/json",
     },
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("API Response:", data); // Log the full response to see the structure
+      console.log("API Response:", data); // Log the full response to see the structure in console
       const status = data.result.status;
-      if (status === "schedule" && data.result.content) {
-        // Display song title if available
-        nowPlaying.textContent =
-          data.result.content.title || "No title available";
+      const trackInfo = data.result.metadata; // Accessing metadata which contains title info
+
+      if (status === "schedule" && trackInfo) {
+        // When the station is live, display track title
+        nowPlaying.textContent = trackInfo.title || "Unknown Track"; // Fallback if title is missing
       } else if (status === "offAir") {
+        // When the station is off air, display off air message
         nowPlaying.textContent = "We are off air right now.";
       } else if (status === "defaultPlaylist") {
         nowPlaying.textContent = "We are playing from the default playlist.";

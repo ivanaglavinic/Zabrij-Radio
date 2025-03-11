@@ -63,8 +63,7 @@
           class="contact-form"
           name="contact"
           method="POST"
-          data-netlify="true"
-          netlify-honeypot="bot-field"
+          action="process-form.php"
         >
           <div class="info">
             <label for="name">FULL NAME</label>
@@ -82,7 +81,6 @@
               required
             ></textarea>
             <button class="button-form" type="submit">SEND</button>
-            <input type="hidden" name="form-name" value="contact" />
           </div>
         </form>
       </main>
