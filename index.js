@@ -92,12 +92,15 @@ function goBack() {
   if (document.referrer.includes(window.location.hostname)) {
     window.history.back(); // Go back normally
   } else {
-    window.location.href = "home.html"; // Redirect to a safe fallback page
+    window.location.href = "index.html"; // Redirect to a safe fallback page
   }
 }
 const streamAudio = document.getElementById("radioStream");
 const controlButton = document.getElementById("toggleRadio");
 const nowPlaying = document.querySelector(".now-playing");
+
+const stationId = "zabrij-radio"; // Your station ID
+const apiKey = "pk_f59abf349a934227bd94f5af5d945086"; // Your API key
 
 // Play/Pause the stream (button text does NOT change)
 controlButton.addEventListener("click", () => {
@@ -110,21 +113,29 @@ controlButton.addEventListener("click", () => {
   }
 });
 
-// Function to fetch the currently playing track
+// Function to fetch the currently playing track from Radio Cult
 function fetchTrackInfo() {
-  fetch("https://zabrijradio.airtime.pro/api/live-info-v2")
+  fetch(`https://api.radiocult.fm/api/station/${stationId}/schedule/live`, {
+    method: "GET",
+    headers: {
+      Authorization: `Bearer ${apiKey}`, // Your API key
+      "Content-Type": "application/json",
+    },
+  })
     .then((response) => response.json())
     .then((data) => {
-      console.log("API Response:", data); // Log the full response to see the structure in console
-      if (
-        data &&
-        data.tracks &&
-        data.tracks.current &&
-        data.tracks.current.name
-      ) {
-        nowPlaying.textContent = data.tracks.current.name; // Use the correct path to access the song name
+      console.log("API Response:", data); // Log the full response to see the structure
+      const status = data.result.status;
+      if (status === "schedule" && data.result.content) {
+        // Display song title if available
+        nowPlaying.textContent =
+          data.result.content.title || "No title available";
+      } else if (status === "offAir") {
+        nowPlaying.textContent = "We are off air right now.";
+      } else if (status === "defaultPlaylist") {
+        nowPlaying.textContent = "We are playing from the default playlist.";
       } else {
-        nowPlaying.textContent = "We are on the break :)";
+        nowPlaying.textContent = "Error: No content available.";
       }
     })
     .catch((error) => {
