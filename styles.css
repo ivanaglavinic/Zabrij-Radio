@@ -15,6 +15,17 @@ body {
 #main {
   margin-bottom: 50px;
 }
+.thank-you-container {
+  font-family: "MyCustomFont", sans-serif;
+  text-align: center;
+  margin: 175px auto;
+}
+.thank-you {
+  font-size: 44px;
+}
+.thank-you-message {
+  font-size: 18px;
+}
 h1 {
   font-family: "MyCustomFont", sans-serif;
   font-size: 48px;
@@ -659,5 +670,16 @@ footer {
   .radio-container {
     width: 32%;
     margin: auto;
+  }
+  .thank-you-container {
+    font-family: "MyCustomFont", sans-serif;
+    text-align: center;
+    margin: 285px auto;
+  }
+  .thank-you {
+    font-size: 38px;
+  }
+  .thank-you-message {
+    font-size: 14px;
   }
 }
