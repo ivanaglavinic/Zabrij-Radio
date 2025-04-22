@@ -130,7 +130,8 @@ function fetchTrackInfo() {
 
       if (status === "schedule" && trackInfo) {
         // When the station is live, display track title
-        nowPlaying.textContent = trackInfo.title || "Unknown Track"; // Fallback if title is missing
+        nowPlaying.textContent =
+          trackInfo.artist + " - " + trackInfo.title || "Unknown Track"; // Fallback if title is missing
       } else if (status === "offAir") {
         // When the station is off air, display off air message
         nowPlaying.textContent = "We are off air right now.";
