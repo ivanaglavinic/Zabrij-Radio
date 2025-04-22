@@ -84,7 +84,7 @@ window.onload = function () {
   // Auto slide every 4 seconds
   setInterval(() => {
     moveSlide(1); // Automatically move to the next slide
-  }, 4000);
+  }, 3000);
 };
 
 function goBack() {
