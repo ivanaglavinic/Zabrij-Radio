@@ -3,7 +3,7 @@ function toggleMenu() {
   menu.classList.toggle("active");
 }
 
-const clientID = "MisMbnefMS4Sbq7qAnuzooa5dAwUsEq0"; // Replace with your SoundCloud Client ID
+const clientID = "MisMbnefMS4Sbq7qAnuzooa5dAwUsEq0";
 let currentTrackUrl = null;
 let widget = null;
 
@@ -29,12 +29,12 @@ function handleSearch() {
   artists.forEach((artist) => {
     const artistName = artist.getAttribute("data-name").toLowerCase();
     console.log(`Artist Name: ${artistName}`);
-    // Check if the artist's name includes the search query
+
     if (artistName.includes(query)) {
       artist.style.display = "block";
       resultsFound = true;
     } else {
-      artist.style.display = "none"; // Hide non-matching artists
+      artist.style.display = "none";
     }
   });
 
