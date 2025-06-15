@@ -325,11 +325,39 @@ li a {
   margin: 50px auto;
   border: 1px solid white;
   padding: 20px;
-  width: 80%;
+  width: 70%;
+}
+.prostor-video {
+  width: 40%;
+  max-width: 300px;
+  height: auto;
+  margin: 2rem auto;
+  display: block;
 }
 .team {
   font-family: "MyCustomFont", sans-serif;
   text-align: center;
+}
+.team-members {
+  width: 40%;
+  margin: 50px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+@media (max-width: 768px) {
+  .team-members {
+    width: 90%;
+  }
+  .video-section {
+    width: 100%;
+  }
+  .prostor-video {
+    width: 60%;
+  }
+  .video-section div {
+    font-size: 14px;
+  }
 }
 .member-name {
   font-size: 15px;
@@ -587,7 +615,7 @@ footer {
     width: 100%;
     line-height: 1.6;
     margin: 50px auto;
-    font-size: 12px;
+    font-size: 11px;
   }
   .about-head {
     font-size: 28px;
