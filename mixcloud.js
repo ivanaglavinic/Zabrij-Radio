@@ -1,4 +1,7 @@
-// Replace with your actual Mixcloud username
+function toggleMenu() {
+  const menu = document.querySelector(".menu");
+  menu.classList.toggle("active");
+}
 const MIXCLOUD_USERNAME = "zabrijradio";
 
 // No client credentials needed for public tracks!
