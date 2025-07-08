@@ -30,7 +30,6 @@ function fetchTrackInfo() {
       console.log("API Response:", data); // Log the full response to see the structure in console
       const status = data.result.status;
       const trackInfo = data.result.metadata; // Accessing metadata which contains title info
-
       if (status === "schedule" && trackInfo) {
         // When the station is live, display track title
         nowPlaying.textContent =
@@ -39,7 +38,7 @@ function fetchTrackInfo() {
         // When the station is off air, display off air message
         nowPlaying.textContent = "We are off air right now.";
       } else if (status === "defaultPlaylist") {
-        nowPlaying.textContent = "We are playing from the default playlist.";
+        nowPlaying.textContent = "ZABRIJ RADIO PLAYLIST";
       } else {
         nowPlaying.textContent = "Error: No content available.";
       }
